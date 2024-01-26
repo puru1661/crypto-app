@@ -6,7 +6,7 @@ function valuetext(value) {
   return `${value}°C`;
 }
 
-export default function RangeSlider() {
+export default function RangeSlider({min,max}) {
   const [value, setValue] = React.useState([0, 10000]);
 
   const handleChange = (event, newValue) => {
