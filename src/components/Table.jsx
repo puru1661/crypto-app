@@ -13,6 +13,7 @@ import RangeSlider from './RangeSlider';
 import '../App.css';
 import TablePagination from '@mui/material/TablePagination';
 import BasicSelect from './DropDown';
+import {Link} from 'react-router-dom';
 
 
 function RTable() {
@@ -137,7 +138,11 @@ function RTable() {
                 return search.toLocaleLowerCase() === '' ? val : val.TradingInformationData.StockDisplayName.toLocaleLowerCase().includes(search)
             }).map((item,index)=>(
                 <TableRow key={index} className='border-b'>
-                    <TableCell className="stickyColumn">{item.TradingInformationData.StockListingTicker}</TableCell>
+                    <TableCell className="stickyColumn">
+                    <Link to={`/stock/${item.TradingInformationData.StockListingTicker}`}>
+                        {item.TradingInformationData.StockListingTicker}
+                    </Link>
+                    </TableCell>
                     <TableCell>{item.TradingInformationData.StockDisplayName}</TableCell>
                     <TableCell>{item.TradingInformationData.StockListingMarketCap}</TableCell>
                     <TableCell>{item.TradingInformationData.StockSectorName}</TableCell>
